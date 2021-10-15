@@ -46,7 +46,7 @@ potions = [
         "name": "Flask of Power",
         "id": 171276,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_alchemy_90_flask_green.jpg",
-        "cost": 3450891,
+        "cost": 8450891,
         "craft_cost": herbs[5]["cost"] * 3 + herbs[1]["cost"] * 4 + herbs[0]["cost"] * 4 +herbs[3]["cost"] * 4 + herbs[2]["cost"] * 4,
     },{
         "name": "Phantom Fire",
@@ -92,17 +92,17 @@ potions = [
         "craft_cost": herbs[4]["cost"] * 2 + herbs[1]["cost"] * 3,
     },]
 
-def ah_filter(potid):
-    for i in range(0, len(potions)):
-        if (potid == potions[1]["id"]):
-            print("It works!")
-        else:
-            print("Whut?")
+# def ah_filter(potid):
+#     for i in range(0, len(potions)):
+#         if (potid == potions[1]["id"]):
+#             print("It works!")
+#         else:
+#             print("Whut?")
 
 # ah_filter(data["auctions"])
 # print(data["auctions"])
 # print(len(data["auctions"]))
-
+# ? Could this be a Class
 def into_gold(num):
     gold = num / 10000
     gold = math.floor(gold)
@@ -122,4 +122,16 @@ def coin(num): # Return into a Dict?
     x = f"{into_gold(num)} Gold, {into_silver(num)} Silver, {into_copper(num)} Copper"
     return x
 
-print(potions[4])
+def comp():
+    for i in range(len(potions)):
+        name = potions[i]["name"]
+        if (potions[i]["craft_cost"] > potions[i]["cost"]):
+            x = potions[i]["craft_cost"] - potions[i]["cost"]
+            print(f"{name}: Buy it! You'll save {coin(x)} per potion.")
+        elif (potions[i]["craft_cost"] < potions[i]["cost"]):
+            x = potions[i]["cost"] - potions[i]["craft_cost"]
+            print(f"{name}: Craft it! You'll save {coin(x)} per potion.")
+        elif (potions[i]["craft_cost"] == potions[i]["cost"]):
+            print("It doesn't matter...")
+
+print(comp())
