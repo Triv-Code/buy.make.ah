@@ -1,7 +1,8 @@
 import requests
 import json
 import math
-#           !!!! What are the benefits / differences of loading this way? 
+import pprint
+# ? What are the benefits / differences of loading this way? 
 # data = requests.get("https://us.api.blizzard.com/data/wow/connected-realm/11/auctions?namespace=dynamic-us&locale=en_US&access_token=US7ojuxwdmAtxfikgsR4Zu4b68IM8rd1li").json()
 # url = 'https://us.api.blizzard.com/data/wow/connected-realm/11/auctions?namespace=dynamic-us&locale=en_US&access_token=US7ojuxwdmAtxfikgsR4Zu4b68IM8rd1li'
 # r = requests.get(url)
@@ -12,26 +13,32 @@ herbs = [
         "name": "Marrowroot", 
         "id": 168589,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_misc_herb_marrowroot.jpg",
+        "cost": 234567,
     },{
         "name": "Rising Glory", 
         "id": 168586,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_misc_herb_risingglory.jpg",
+        "cost": 314567,
     },{
         "name": "Vigil's Torch", 
         "id": 170554,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_misc_herb_ardenweald.jpg",
+        "cost": 354567,
     },{
         "name": "Widowbloom", 
         "id": 168583,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_misc_herb_bloodcup.jpg",
+        "cost": 349567,
     },{
         "name": "Death Blossom", 
         "id": 169701,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_misc_herb_deathblossom.jpg",
+        "cost": 304567,
     },{
         "name": "Nightshade", 
         "id": 171315,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_misc_herb_nightshade.jpg",
+        "cost": 780431,
     },]
 
 potions = [
@@ -39,42 +46,50 @@ potions = [
         "name": "Flask of Power",
         "id": 171276,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_alchemy_90_flask_green.jpg",
-        #  craftCost: nightCost * 3 + risingCost * 4 + marrowCost * 4 + widowCost * 4 + vigilCost * 4,
+        "cost": 3450891,
+        "craft_cost": herbs[5]["cost"] * 3 + herbs[1]["cost"] * 4 + herbs[0]["cost"] * 4 +herbs[3]["cost"] * 4 + herbs[2]["cost"] * 4,
     },{
         "name": "Phantom Fire",
         "id": 171349,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_alchemy_90_combat1_green.jpg",
-        # craftCost: marrowCost * 3 + risingCost * 3,
+        "cost": 1780431,
+        "craft_cost": herbs[0]["cost"] * 3 + herbs[1]["cost"] * 3,
     },{
         "name": "Empowered Exorcisms",
         "id": 171352,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_alchemy_90_combat1_pink.jpg",
-        # craftCost: marrowCost * 3 + widowCost * 3,
+        "cost": 780431,
+        "craft_cost": herbs[0]["cost"] * 3 + herbs[3]["cost"] * 3,
     },{
         "name": "Deathly Fixation",
         "id": 171351,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_alchemy_90_combat1_yellow.jpg",
-        # craftCost:  widowCost * 3 + vigilCost * 3,
+        "cost": 650431,
+        "craft_cost": herbs[3]["cost"] * 3 + herbs[2]["cost"] * 3,
     },{
         "name": "Spectral Agility",
         "id": 171270,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_alchemy_90_combat2_green.jpg",
-        # craftCost:  widowCost * 5,
+        "cost": 240431,
+        "craft_cost": herbs[3]["cost"] * 5,
     },{
         "name": "Spectral Strength",
         "id": 171275,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_alchemy_90_combat2_yellow.jpg",
-        # craftCost: risingCost * 5,
+        "cost": 330431,
+        "craft_cost": herbs[1]["cost"] * 5,
     },{
         "name": "Spectral Intellect",
         "id": 171273,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_alchemy_90_combat2_purple.jpg",
-        # craftCost: marrowCost * 5,
+        "cost": 980431,
+        "craft_cost": herbs[0]["cost"] * 5,
     },{
         "name": "Hidden Spirit",
         "id": 171266,
         "img": "https://render-us.worldofwarcraft.com/icons/56/inv_alchemy_90_utility_red.jpg",
-        # craftCost: deathCost * 2 + risingCost * 3,
+        "cost": 120431,
+        "craft_cost": herbs[4]["cost"] * 2 + herbs[1]["cost"] * 3,
     },]
 
 def ah_filter(potid):
@@ -107,4 +122,4 @@ def coin(num): # Return into a Dict?
     x = f"{into_gold(num)} Gold, {into_silver(num)} Silver, {into_copper(num)} Copper"
     return x
 
-print(coin(1234567))
+print(potions[4])
