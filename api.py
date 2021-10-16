@@ -1,12 +1,12 @@
 import requests
 import json
 import math
-import pprint
+
 # ? What are the benefits / differences of loading this way? 
-# data = requests.get("https://us.api.blizzard.com/data/wow/connected-realm/11/auctions?namespace=dynamic-us&locale=en_US&access_token=US7ojuxwdmAtxfikgsR4Zu4b68IM8rd1li").json()
-# url = 'https://us.api.blizzard.com/data/wow/connected-realm/11/auctions?namespace=dynamic-us&locale=en_US&access_token=US7ojuxwdmAtxfikgsR4Zu4b68IM8rd1li'
-# r = requests.get(url)
-# data = json.loads(r.text)
+# data = requests.get("https://us.api.blizzard.com/data/wow/connected-realm/11/auctions?namespace=dynamic-us&locale=en_US&access_token=USO3eQDmxPgccomj8nS74ZsmlivAe735Mk").json()
+url = 'https://us.api.blizzard.com/data/wow/connected-realm/11/auctions?namespace=dynamic-us&locale=en_US&access_token=USO3eQDmxPgccomj8nS74ZsmlivAe735Mk'
+r = requests.get(url)
+data = json.loads(r.text)
 
 herbs = [
     {
@@ -102,6 +102,14 @@ potions = [
 # ah_filter(data["auctions"])
 # print(data["auctions"])
 # print(len(data["auctions"]))
+
+# for auction in data["auctions"]:
+#     if (auction["item"]["id"] == 171276):
+#         price = auction["unit_price"]
+#         print(auction)
+        
+
+
 # ? Could this be a Class
 def into_gold(num):
     gold = num / 10000
@@ -133,5 +141,3 @@ def comp():
             print(f"{name}: Craft it! You'll save {coin(x)} per potion.")
         elif (potions[i]["craft_cost"] == potions[i]["cost"]):
             print("It doesn't matter...")
-
-print(comp())
