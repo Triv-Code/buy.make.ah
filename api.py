@@ -103,12 +103,19 @@ potions = [
 # print(data["auctions"])
 # print(len(data["auctions"]))
 
-# for auction in data["auctions"]:
-#     if (auction["item"]["id"] == 171276):
-#         price = auction["unit_price"]
-#         print(auction)
+for auction in data["auctions"]:
+    if (auction["item"]["id"] == potions[0]["id"]):
+        price = auction["unit_price"]
+        print(price)
         
+# for auction in data["auctions"]:
+    # if (auction["item"]["id"] == potions[0]["id"]):
+    #     price = auction["unit_price"]
+    #     print(type(price))        
 
+# test_thing = [5, 7, 8, 9]
+
+# print(min(test_thing))
 
 # ? Could this be a Class
 def into_gold(num):
