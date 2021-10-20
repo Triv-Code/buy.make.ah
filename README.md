@@ -18,4 +18,4 @@ Features:
         • The API call returns a JSON file, that is read from in order to update the dictionaries. 
 
 !!! Code Louisville !!! 
-The API uses OAuth and requires a new Token every 24 hours. Reach out to me on slack and I can use my credentials to supply you with an up to date token. The token itself is at the end of the URL. 
+The API uses OAuth and requires a new Token every 24 hours. Reach out to me on slack and I can use my credentials to supply you with an up to date token. The token itself is at the end of the URL. Once you have the updated Token, just run python api.py from the command line and you're good to go. 

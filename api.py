@@ -4,7 +4,7 @@ import math
 
 # ? What are the benefits / differences of loading this way? 
 # data = requests.get("https://us.api.blizzard.com/data/wow/connected-realm/11/auctions?namespace=dynamic-us&locale=en_US&access_token=USO3eQDmxPgccomj8nS74ZsmlivAe735Mk").json()
-url = 'https://us.api.blizzard.com/data/wow/connected-realm/57/auctions?namespace=dynamic-us&locale=en_US&access_token=USO3eQDmxPgccomj8nS74ZsmlivAe735Mk'
+url = 'https://us.api.blizzard.com/data/wow/connected-realm/11/auctions?namespace=dynamic-us&locale=en_US&access_token=USl2VBkJBI4oH0pYTZvJQGqJ05c7GLxgeR'
 r = requests.get(url)
 data = json.loads(r.text)
 
@@ -49,7 +49,7 @@ def ah_herb_filter(num):
             prices.append(auction["unit_price"])
     herbs[num]["cost"] = min(prices)
 
-# # Loops herbs Dict to call ah_herb_filter for each potion. 
+# # Loops herbs Dictionary to call ah_herb_filter for each potion. 
 for i in range(0, len(herbs)):
     ah_herb_filter(i)    
 
@@ -105,7 +105,7 @@ def ah_pot_filter(num):
             prices.append(auction["unit_price"])
     potions[num]["buy_cost"] = min(prices)
 
-# Loops Potions Dict to call ah_pot_filter for each potion. 
+# Loops Potions Dictionary to call ah_pot_filter for each potion. 
 for i in range(0, len(potions)):
     ah_pot_filter(i)
 
@@ -125,7 +125,7 @@ def into_copper(num):
     num = num[-2:]
     return num
 
-def coin(num): # Return into a Dict?
+def coin(num):
     x = f"{into_gold(num)} Gold, {into_silver(num)} Silver, {into_copper(num)} Copper"
     return x
 
