@@ -4,7 +4,7 @@ import math
 
 # ? What are the benefits / differences of loading this way? 
 # data = requests.get("https://us.api.blizzard.com/data/wow/connected-realm/11/auctions?namespace=dynamic-us&locale=en_US&access_token=USO3eQDmxPgccomj8nS74ZsmlivAe735Mk").json()
-url = 'https://us.api.blizzard.com/data/wow/connected-realm/11/auctions?namespace=dynamic-us&locale=en_US&access_token=USMS4mNi4eX5P3j5fAm1YNU7X8qTcyHMbn'
+url = 'https://us.api.blizzard.com/data/wow/connected-realm/11/auctions?namespace=dynamic-us&locale=en_US&access_token=USHQmRdZs5C34wd3xXcb20K5qQqObBJ2qI'
 r = requests.get(url)
 data = json.loads(r.text)
 
